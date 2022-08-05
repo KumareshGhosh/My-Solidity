@@ -47,8 +47,8 @@ contract Tether {
         address _to,
         uint256 value
     ) public returns (bool success) {
-        require(value <= balanceof[msg.sender]);
-        require(value <= allowance[msg.sender][_from]);
+        require(value <= balanceof[_from]);
+        require(value <= allowance[_from][msg.sender]);
 
         balanceof[_to] += value;
         balanceof[_from] -= value;
